@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>随机视频播放</title>
+</head>
+<body>
+  <h1>欢迎观看随机视频</h1>
+  
+  <div id="video-container">
+    <video id="my-video" src="" controls></video>
+  </div>
+  
+  <script>
+    // 定义视频列表（示例视频URL）
+    var videoList = [
+      "video1.mp4",
+      "video2.mp4",
+      "video3.mp4",
+      "video4.mp4",
+      "video5.mp4"
+    ];
+    
+    // 指定视频开始播放的时间（示例为2024年6月1日 12:00:00）
+    var startTime = new Date("2024-06-01T12:00:00");
+    
+    // 获取当前时间
+    var currentTime = new Date();
+    
+    // 比较当前时间与开始播放时间
+    if (currentTime >= startTime) {
+      // 如果当前时间已经超过或等于开始播放时间，则从视频列表中随机选择一个视频播放
+      var randomIndex = Math.floor(Math.random() * videoList.length);
+      var videoUrl = videoList[randomIndex];
+      
+      var video = document.getElementById("my-video");
+      video.src = videoUrl;
+      video.play();
+    }
+  </script>
+</body>
+</html>
